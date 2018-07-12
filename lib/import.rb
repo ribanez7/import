@@ -1,7 +1,9 @@
-require "import/version"
+require 'import/version'
+require 'import/dictionaries/formats_dictionaries'
 
 module Import
   class Import
+    # TODO: adjust this #call method when finished
     def self.call(*args)
       new(*args).call
     end
@@ -23,7 +25,7 @@ module Import
     private
 
       def import(file, format, client)
-        DICTIONARIES::FORMATS[format].import(file, client)
+        Dictionaries::FORMATS[format].import(file, client)
       end
   end
 end
