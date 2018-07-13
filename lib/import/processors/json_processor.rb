@@ -3,7 +3,9 @@ require 'json'
 module Import
   module Processors
     class JSONProcessor < ApplicationProcessor
-      # nil
+      def import!
+        puts self.inspect
+      end
     end
   end
 end
