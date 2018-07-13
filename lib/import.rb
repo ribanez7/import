@@ -1,5 +1,7 @@
 require 'import/version'
-require 'import/dictionaries/formats_dictionaries'
+require 'app_paths'
+Dir[Import.processors].each { |processor| require processor }
+require 'import/dictionaries/formats_dictionary'
 
 module Import
   class Import
@@ -8,7 +10,7 @@ module Import
       new(*args).call
     end
 
-    def initialize(options)
+    def initialize(**options)
       @options = options
     end
 
