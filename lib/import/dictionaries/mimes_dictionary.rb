@@ -1,6 +1,6 @@
 module Import
   module Dictionaries
-    FORMATS = {
+    MIMES = {
       'yaml' => Processors::YAMLProcessor,
       'yml'  => Processors::YAMLProcessor,
       'json' => Processors::JSONProcessor

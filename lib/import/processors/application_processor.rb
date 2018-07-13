@@ -9,7 +9,7 @@ module Import
       attr_reader :file, :client
 
       def initialize(file, client)
-        @file = File.expand_path(file)
+        @file   = file
         @client = Dictionaries::CLIENTS[client]
       end
     end
