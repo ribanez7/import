@@ -3,7 +3,8 @@ module Import
     MIMES = {
       'yaml' => Processors::YAMLProcessor,
       'yml'  => Processors::YAMLProcessor,
-      'json' => Processors::JSONProcessor
+      'json' => Processors::JSONProcessor,
+      'csv'  => NotImplementedError
     }.freeze
   end
 end
