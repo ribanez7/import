@@ -12,6 +12,10 @@ module Import
         @file   = file
         @client = Dictionaries::CLIENTS[client]
       end
+
+      def import!
+        raise NotImplementedError, 'Please define this method on child classes.'
+      end
     end
   end
 end

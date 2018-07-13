@@ -22,11 +22,12 @@ module Import
     private
 
       def import(mime)
-        processor = Dictionaries::MIMES[mime]
-        raise processor, <<~EOE if processor.respond_to?(:exception)
+        processor_klass = Dictionaries::MIMES[mime]
+        raise processor_klass, <<~EOE if processor_klass.respond_to?(:exception)
           Parser still not implemented for #{mime} files
         EOE
-        puts processor.new(@file, @client).inspect
+        processor = processor_klass.new(@file, @client)
+        processor.import!
       end
   end
 end

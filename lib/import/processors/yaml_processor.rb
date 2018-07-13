@@ -3,7 +3,9 @@ require 'yaml'
 module Import
   module Processors
     class YAMLProcessor < ApplicationProcessor
-      # nil
+      def import!
+        puts self.inspect
+      end
     end
   end
 end
