@@ -13,6 +13,15 @@ module Import
         assert_respond_to @item, :twitter
         assert_respond_to @item, :categories
       end
+
+      def test_ensure_categories_is_allways_an_enumerable
+        assert_respond_to @item.categories, :each
+      end
+
+      def test_it_has_the_requested_log_format
+        pattern = /Name: [^;]+; Categories: [^;]+; Twitter: [^\z]+\z/
+        assert_match pattern, @item.log
+      end
     end
   end
 end
