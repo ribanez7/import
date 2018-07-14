@@ -1,6 +1,5 @@
 require 'yaml'
 require 'import/application_processor'
-require 'import/data/item'
 
 module Import
   module Adapters

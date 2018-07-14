@@ -1,3 +1,4 @@
+require 'import/data/item'
 require 'import/data/paths'
 require 'import/dictionaries/clients_dictionary'
 

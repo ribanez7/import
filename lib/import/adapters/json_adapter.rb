@@ -1,4 +1,5 @@
 require 'json'
+require 'import/application_processor'
 
 module Import
   module Adapters
