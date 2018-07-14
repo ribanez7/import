@@ -7,7 +7,7 @@ class ApplicationProcessorTest < Minitest::Test
   end
 
   def test_that_it_takes_the_attributes_from_the_client_struct
-    processor = Import::Processors::ApplicationProcessor.new(@file, 'capterra')
+    processor = Import::ApplicationProcessor.new(@file, 'capterra')
     assert_equal @client, processor.client
     assert_equal @client.twitter_path, processor.twitter_path
   end

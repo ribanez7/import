@@ -1,8 +1,8 @@
-require 'json'
+require 'csv'
 
 module Import
-  module Processors
-    class JSONProcessor < ApplicationProcessor
+  module Adapters
+    class CSVAdapter < ApplicationProcessor
       def import!
         puts self.inspect
       end

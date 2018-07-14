@@ -1,6 +1,6 @@
 require 'import/version'
 require 'app_paths'
-Dir[Import.processors].each { |processor| require processor }
+Dir[Import.adapters].each { |adapter| require adapter }
 require 'import/dictionaries/mimes_dictionary'
 
 module Import
@@ -22,12 +22,12 @@ module Import
     private
 
       def import(mime)
-        processor_klass = Dictionaries::MIMES[mime]
-        raise processor_klass, <<~EOE if processor_klass.respond_to?(:exception)
+        adapter_klass = Dictionaries::MIMES[mime]
+        raise adapter_klass, <<~EOE if adapter_klass.respond_to?(:exception)
           Parser still not implemented for #{mime} files
         EOE
-        processor = processor_klass.new(@file, @client)
-        processor.import!
+        adapter = adapter_klass.new(@file, @client)
+        adapter.import!
       end
   end
 end
