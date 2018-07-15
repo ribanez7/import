@@ -19,18 +19,24 @@ module Import
           generate_item(record)
         end
       end
+      $stdout.flush
     end
 
     private
+
+      def generate_categories(categories)
+        return categories if categories.instance_of?(Array)
+        categories.split(splitter)
+      end
 
       def generate_item(record)
         return generate_item(record.dig(*item_path)) unless item_path.empty?
         item = Data::Item.new do |i|
           i.name       = record[name_path]
           i.twitter    = record[twitter_path]
-          i.categories = record[categories_path]
+          i.categories = generate_categories(record[categories_path])
         end
-        puts "importing: #{item.log}"
+        $stdout.puts "importing: #{item.log}"
       end
 
       def collection(db)
