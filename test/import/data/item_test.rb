@@ -19,7 +19,7 @@ module Import
       end
 
       def test_it_has_the_requested_log_format
-        pattern = /Name: [^;]+; Categories: [^;]+; Twitter: [^\z]+\z/
+        pattern = /Name: [^;]+; Categories: [^;]+; Twitter: .+\z/
         assert_match pattern, @item.log
       end
     end

@@ -9,7 +9,7 @@ Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new]
 module MiniTest
   module Assertions
     def refute_raises(*exp)
-      msg = "#{exp.pop}.\n" if String === exp.last
+      _msg = "#{exp.pop}.\n" if String === exp.last
 
       begin
         yield
