@@ -5,16 +5,16 @@ require 'import'
 
 optparser = OptionParser.new
 arguments = optparser.parse!
+usage     = <<EOS
+Please provide client name as the first argument, then the file to import the data from.
+EOS
 
 client = arguments.shift
-raise ArgumentError, <<~EOS unless client
-  Please provide client name as the first argument,
-  then the file to import the data from.
-EOS
-
 file = arguments.shift
-raise ArgumentError, <<~EOS unless file
-  Please provide the file to import the data from as the second argument
-EOS
+
+unless client && file
+  STDERR.puts(usage)
+  exit 1
+end
 
 Import::Import.call(client, file)

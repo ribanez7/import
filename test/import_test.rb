@@ -25,6 +25,16 @@ class ImportTest < Minitest::Test
     OUTPUT
   end
 
+  def test_it_exits_with_0_when__proper_arguments_are_provided
+    system('exe/import capterra feed-products/capterra.yaml > /dev/null 2>&1')
+    assert_equal 0, $?.exitstatus
+  end
+
+  def test_it_exits_with_1_when_arguments_are_not_provided
+    system('exe/import > /dev/null 2>&1')
+    assert_equal 1, $?.exitstatus
+  end
+
   def test_it_informs_when_a_filetype_is_not_supported
     file = 'newcompany.csv'
 
