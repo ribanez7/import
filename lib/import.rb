@@ -2,6 +2,7 @@ require 'import/version'
 require 'app_paths'
 Dir[Import.adapters].each { |adapter| require adapter }
 require 'import/dictionaries/mimes_dictionary'
+require 'import/file_locator'
 
 module Import
   class Import
@@ -11,7 +12,7 @@ module Import
 
     def initialize(client, file)
       @client = client
-      @file   = File.expand_path(file)
+      @file   = FileLocator.get_path(file)
     end
 
     def call

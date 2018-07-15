@@ -30,7 +30,7 @@ module Import
           i.twitter    = record[twitter_path]
           i.categories = record[categories_path]
         end
-        puts ":: ITEM: #{item.inspect}"
+        puts "importing: #{item.log}"
       end
 
       def collection(db)
