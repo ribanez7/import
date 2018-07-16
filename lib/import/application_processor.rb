@@ -25,8 +25,8 @@ module Import
     private
 
       def generate_categories(categories)
-        return categories if categories.instance_of?(Array)
-        categories.split(splitter)
+        return categories.uniq if categories.instance_of?(Array)
+        categories.split(splitter).uniq
       end
 
       def generate_item(record)
