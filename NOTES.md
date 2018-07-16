@@ -1,6 +1,0 @@
-1. require just the needed parsers
-2. add flags to the command line options?
-3. add API documentation
-4. use gems that stream better json and yaml files, like json-stream or yajl
-5. mimes hash would do ok returning a constantizable string?
-6. using a custom logger instead of $stdout
